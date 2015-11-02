@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Building{
+public:
+	Building(){
+		for(int i=0;i<3;i++){
+			StatChangeValue[i]=0;
+		}
+		Message="";
+		CheckLock=false;
+		Cordinate[0]=0;
+		Cordinate[1]=0;
+	}
+	void set_StatChangeValue(int a, int b, int c){
+		StatChangeValue[0]=a;
+		StatChangeValue[1]=b;
+		StatChangeValue[2]=c;
+	}//스탯변화값을 접근하기 위한 함수
+	int* get_StatChangeValue() {return StatChangeValue;}//스탯변화값을 리턴하는 함수
+	void set_Message(string a) {Message=a;}//메세지를 입력받기위한 함수 
+	string get_Message() const {return Message;}//메세지를 리턴하는 함수
+	void set_CheckLock(bool a) {CheckLock=a;}//해금여부를 입력받는 함수
+	bool get_CheckLock() const {return CheckLock;}//해금여부를 리턴하는 함수
+	void set_Cordinate(int *a) {Cordinate[0]=a[0];Cordinate[1]=a[1];}//좌표를 입력받는 함수
+	int* get_Cordinate() {return Cordinate;} //좌표를 리턴하는 함수
+	void set_TimeChangeValue(int a) {TimeChangeValue=a;} //시간변화값을 입력받는 함수
+	int get_TimeChangeValue() const {return TimeChangeValue;} //시간변화값을 리턴하는 함수
+	void StatChange(int &Health, int &GPA, int &Charm){
+		Health+=StatChangeValue[0];
+		GPA+=StatChangeValue[1];
+		Charm+=StatChangeValue[2];
+	}//스탯변화
+	void PrintMessage(){
+		cout<<Message<<endl;
+	}//메세지 출력, 일단 간단하게 cout을 사용하고, 나중에 상황에 맞게 바꿔야함
+	void TimeChange(int &Time) {Time+=TimeChangeValue;} //시간변화
+private:
+	int StatChangeValue[3]; //health, GPA, charm순서이다.
+	string Message; //출력하는 메세지
+	bool CheckLock; //열렸을때 ture, 닫혔을때 false
+	int Cordinate[2]; //x,y축 순서이다.
+	int TimeChangeValue;
+};
