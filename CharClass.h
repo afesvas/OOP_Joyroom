@@ -1,13 +1,16 @@
 #include <iostream>
 
+#ifndef CHAR
+#define CHAR
+
 class Character{
 private:
-	int gender;					//¼ºº°
-	int level;					//»õ³»±â or Çå³»±â
-	int charm;					//¸Å·ÂÁö¼ö
-	int health;					//Ã¼·Â
-	int gpa;					//ÇĞÁ¡
-	//Inventory inven;			//ÀÎº¥Åä¸®
+	int gender;					//ì„±ë³„
+	int level;					//ìƒˆë‚´ê¸° or í—Œë‚´ê¸°
+	int charm;					//ë§¤ë ¥ì§€ìˆ˜
+	int health;					//ì²´ë ¥
+	int gpa;					//í•™ì 
+	//Inventory inven;			//ì¸ë²¤í† ë¦¬
 public:
 	int get_charm();
 	int get_health();
@@ -15,7 +18,9 @@ public:
 	//Inventory get_inventory();
 	void set_charm(int _charm);
 	void set_health(int _health);
-	void set_gpa(int _gpa);					//¼ºº°, ³­ÀÌµµ´Â ¹Ù²îÁö ¾ÊÀ» °ÍÀÌ±â ¶§¹®¿¡ getset ÇÔ¼ö¸¦ ¸¸µéÁö ¾ÊÀ½
-	//void add_item(Item new_item);					//ÀÎº¥Åä¸®¿¡ ¾ÆÀÌÅÛ Ãß°¡
-	//bool discard_item(Item dis_item);				//ÀÎº¥Åä¸®¿¡¼­ ¾ÆÀÌÅÛ »èÁ¦. »èÁ¦ ºÒ°¡´ÉÇÏ°Å³ª ¾ø´Â ¾ÆÀÌÅÛÀÌ¸é false ¸®ÅÏ
+	void set_gpa(int _gpa);					//ì„±ë³„, ë‚œì´ë„ëŠ” ë°”ë€Œì§€ ì•Šì„ ê²ƒì´ê¸° ë•Œë¬¸ì— getset í•¨ìˆ˜ë¥¼ ë§Œë“¤ì§€ ì•ŠìŒ
+	//void add_item(Item new_item);					//ì¸ë²¤í† ë¦¬ì— ì•„ì´í…œ ì¶”ê°€
+	//bool discard_item(Item dis_item);				//ì¸ë²¤í† ë¦¬ì—ì„œ ì•„ì´í…œ ì‚­ì œ. ì‚­ì œ ë¶ˆê°€ëŠ¥í•˜ê±°ë‚˜ ì—†ëŠ” ì•„ì´í…œì´ë©´ false ë¦¬í„´
 };
+
+#endif
