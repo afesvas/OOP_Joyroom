@@ -1,3 +1,5 @@
+#include <string>
+
 #ifndef ITEM
 #define ITEM
 
@@ -9,10 +11,12 @@ private:
 
 	int x, y;	// 아이템의 좌표
 	State state;	// 스탯 변화
+	
+	string name;
 
 public:
-	Item(int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
-	Item(State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
+	Item(string _name, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
+	Item(string _name, State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
 	State get_state();
 
 	void obtain();	// 주웠을 때
@@ -22,7 +26,7 @@ public:
 class ConsumableItem : public Item {
 
 public:
-	ConsumableItem(State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
+	ConsumableItem(string _name, State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
 	void obtain();	// 주웠을 때
 };
 
