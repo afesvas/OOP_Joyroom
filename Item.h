@@ -3,30 +3,27 @@
 
 class Item {
 private:
-	// Æ¯Á¤ Àå¼Ò¿¡¸¸ ¶³¾îÁ®ÀÖ´Â ¾ÆÀÌÅÛÀÌ ÀÖÀ» ¼ö ÀÖ¾î¼­ ¾Æ·¡¿Í °°ÀÌ ±¸¿ªÀ» Á¤ÇÔ
-	int left, top;	// ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÒ ±¸¿ªÀÇ ¿ŞÂÊ, À§ÂÊ ÁÂÇ¥
-	int x_range, y_range;	// ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÒ ±¸¿ªÀÇ ¹üÀ§
+	// íŠ¹ì • ì¥ì†Œì—ë§Œ ë–¨ì–´ì ¸ìˆëŠ” ì•„ì´í…œì´ ìˆì„ ìˆ˜ ìˆì–´ì„œ ì•„ë˜ì™€ ê°™ì´ êµ¬ì—­ì„ ì •í•¨
+	int left, top;	// ì•„ì´í…œì´ ì¡´ì¬í•  êµ¬ì—­ì˜ ì™¼ìª½, ìœ„ìª½ ì¢Œí‘œ
+	int x_range, y_range;	// ì•„ì´í…œì´ ì¡´ì¬í•  êµ¬ì—­ì˜ ë²”ìœ„
 
-	int x, y;	// ¾ÆÀÌÅÛÀÇ ÁÂÇ¥
-	State state;	// ½ºÅÈ º¯È­
+	int x, y;	// ì•„ì´í…œì˜ ì¢Œí‘œ
+	State state;	// ìŠ¤íƒ¯ ë³€í™”
 
 public:
 	Item(int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
 	Item(State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
 	State get_state();
 
-	void obtain();	// ÁÖ¿üÀ» ¶§
+	void obtain();	// ì£¼ì› ì„ ë•Œ
 };
 
 
 class ConsumableItem : public Item {
-private:
-	int due;	// À¯Åë±âÇÑ
 
 public:
-	ConsumableItem(State _state, int _due, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
-	void obtain();	// ÁÖ¿üÀ» ¶§
-	void decrease_due();	// À¯Åë±âÇÑ °¨¼Ò
+	ConsumableItem(State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
+	void obtain();	// ì£¼ì› ì„ ë•Œ
 };
 
 #endif
