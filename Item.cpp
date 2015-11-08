@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
-// main¿¡ srand(time(NULL)); Ãß°¡
+// mainì— srand(time(NULL)); ì¶”ê°€
 
 Item::Item(int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT) {
 	x = rand()%_x_range + _left;
@@ -21,33 +21,21 @@ Item::Item(State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, 
 }
 
 void Item::obtain() {
-	// ÀÎº¥Åä¸®¿¡ Ãß°¡
+	// ì¸ë²¤í† ë¦¬ì— ì¶”ê°€
 	inventory.add(this);
 
-	// ¾ÆÀÌÅÛ Á¦°Å
-	// destructor¸¦ È£Ãâ or º¸ÀÌÁö¾Ê°Ô ¼³Á¤
+	// ì•„ì´í…œ ì œê±°
+	// destructorë¥¼ í˜¸ì¶œ or ë³´ì´ì§€ì•Šê²Œ ì„¤ì •
 }
 
 
 
-ConsumableItem::ConsumableItem(State _state, int _due, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT) : Item(_state, _left, _top, _x_range, _y_range) {
-	due = _due;
-}
+ConsumableItem::ConsumableItem(State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT) : Item(_state, _left, _top, _x_range, _y_range) { }
 
 void ConsumableItem::obtain() {
-	// ¹Ù·Î »ç¿ë
+	// ë°”ë¡œ ì‚¬ìš©
 	character.state += get_state();
 
-	// ¾ÆÀÌÅÛ Á¦°Å
-	// destructor¸¦ È£Ãâ or º¸ÀÌÁö¾Ê°Ô ¼³Á¤
+	// ì•„ì´í…œ ì œê±°
+	// destructorë¥¼ í˜¸ì¶œ or ë³´ì´ì§€ì•Šê²Œ ì„¤ì •
 }
-
-void ConsumableItem::decrease_due() {
-	due--;
-	if (due == 0) {
-		// ¾ÆÀÌÅÛ Á¦°Å
-		// destructor¸¦ È£Ãâ or º¸ÀÌÁö¾Ê°Ô ¼³Á¤
-		;
-	}
-}
-
