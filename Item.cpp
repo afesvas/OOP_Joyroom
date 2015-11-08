@@ -4,6 +4,8 @@
 
 // main에 srand(time(NULL)); 추가
 
+string Item::get_name() { return name; }
+
 Item::Item(int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT) {
 	x = rand()%_x_range + _left;
 	y = rand()%_y_range + _top;
