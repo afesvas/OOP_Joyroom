@@ -19,6 +19,7 @@ public:
 	Item(string _name, State _state, int _left = 0, int _top = 0, int _x_range = MAP_WIDTH, int _y_range = MAP_HEIGHT);
 	State get_state();
 
+	string get_name();
 	void obtain();	// 주웠을 때
 };
 
